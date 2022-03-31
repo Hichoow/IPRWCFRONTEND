@@ -1,26 +1,30 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
 import { AppComponent } from './app.component';
-import { LoginComponent } from './account/login/login.component';
+import { LoginComponent } from './user/login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule, HttpHeaders} from "@angular/common/http";
-import { AccountComponent } from './account/account.component';
-import { RegisterComponent } from './account/register/register.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { HttpClientModule } from "@angular/common/http";
+import { RegisterComponent } from './user/register/register.component';
+import { UserComponent } from './user/user.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    AccountComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

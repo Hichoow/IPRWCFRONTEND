@@ -3,10 +3,12 @@
   <input type="text" id="fname" name="fname" placeholder="username" required #username><br>
   <label for="lname">Last name:</label><br>
   <input type="text" id="lname" name="lname" placeholder="password" required #password><br><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" placeholder="password" required #email><br><br>
   <div class="mt-3">
     <a type="button"
        class="btn form-button w-100"
-       (click)="login(username.value, password.value)">
+       (click)="login(username.value, password.value, email.value)">
       Login
     </a>
   </div>
