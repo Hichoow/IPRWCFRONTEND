@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {UserService} from "../../services/user.service";
 import {TokenService} from "../../services/token.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   LoggedInFail = false;
   errorMsg = '';
   roles: string[] = [];
-  constructor(private userService: UserService, private tokenService: TokenService) {
+  constructor(private userService: UserService, private tokenService: TokenService, private router: Router) {
 
   }
 
@@ -32,11 +33,9 @@ export class LoginComponent implements OnInit {
         this.LoggedIn = true;
         this.LoggedInFail = false;
         this.roles = this.tokenService.getUser().roles;
-        this.reload();
+        window.location.assign("");
       },
       error => {
-
-        console.log("NIET GELUKT")
         this.errorMsg = error.error.message;
         this.LoggedInFail = true;
       }
@@ -44,7 +43,4 @@ export class LoginComponent implements OnInit {
 
   }
 
-  reload(): void {
-    window.location.reload();
-  }
 }

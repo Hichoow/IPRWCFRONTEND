@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public login(username: string, password: string, email: string): void{
+  public register(username: string, password: string, email: string): void{
     let observer: Observable<string> = this.userService.register(username, password, email);
     observer
       .subscribe(token => {
