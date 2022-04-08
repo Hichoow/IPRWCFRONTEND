@@ -3,11 +3,12 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from "@angular/core";
 import {ProductOrder} from "../models/product-order.model";
 import { ProductOrders } from "src/app/models/product-orders.model";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class ShopService {
-  private productsUrl = "http://localhost:8080/api/products";
-  private ordersUrl = "http://localhost:8080/api/orders";
+  private productsUrl = environment.baseUrl + "api/products";
+  private ordersUrl = environment.baseUrl + "api/orders";
 
   private productOrder!: ProductOrder;
   private orders: ProductOrders = new ProductOrders();

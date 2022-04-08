@@ -1,13 +1,40 @@
-<h2 class="text-center">ORDER</h2>
-<ul>
-  <li *ngFor="let order of orders.productOrders">
-    {{ order.product.name }} - ${{ order.product.price }} x {{ order.quantity}} pcs.
-  </li>
-</ul>
-<h3 class="text-right">Total amount: ${{ total }}</h3>
+<div class="container">
+  <section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="g-0">
+              <div class="col-lg-12">
+                <div class="card-body p-md-5 mx-md-4 formExtra">
+                  <div class="text-center">
+                    <img src="assets/img/logo.png"
+                         style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">Welcome to Candyplanet</h4>
+                  </div>
+                  <div class="text-center">
+                    <h2 class="text-center">ORDER</h2>
+                    <ul>
+                      <li *ngFor="let order of orders.productOrders">
+                        {{ order.product.name }} - ${{ order.product.price }} x {{ order.quantity}} pcs.
+                      </li>
+                    </ul>
+                    <h3 class="text-left">Total amount: €{{ total }}</h3>
 
-<button class="btn btn-primary btn-block" (click)="pay()" *ngIf="!paid">Pay</button>
+                    <button class="btn btn-primary" (click)="pay()" *ngIf="!paid">Pay</button>
 
-<div class="alert alert-success" role="alert" *ngIf="paid">
-  <strong>Congratulation!</strong> You successfully made the order.
+                    <div class="alert alert-success" role="alert" *ngIf="paid">
+                      <strong>Congratulation!</strong> You successfully made the order.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+<router-outlet></router-outlet>
+

@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public register(username: string, password: string, email: string): void{
-    let observer: Observable<string> = this.userService.register(username, password, email);
+    let observer: Observable<string> = this.userService.register(username, email, password);
     observer
       .subscribe(token => {
         if(token != "") {

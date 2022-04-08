@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {catchError, Observable, throwError} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private url: string = "http://localhost:8080/api/auth"
+  private url: string = environment.baseUrl + "api/auth"
   private httpOptions = {
     headers: new HttpHeaders().set("Content-Type", "application/json")
   };
@@ -22,7 +23,7 @@ export class UserService {
     return this.http.post(this.url + "/login", body, this.httpOptions);
   }
 
-  public register(username: string,email: string, password: string): Observable<any>{
+  public register(username: string, email: string, password: string): Observable<any>{
     let body = {
       "username" : username,
       "email" : email,

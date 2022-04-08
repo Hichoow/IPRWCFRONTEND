@@ -1,0 +1,13 @@
+.card{
+  background-color: #f8f8f8;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+@media (max-height: 789px) {
+  .card{
+    margin-top: 20px;
+  }
+
+}
