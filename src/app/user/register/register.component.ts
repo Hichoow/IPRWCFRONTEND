@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {UserService} from "../user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,10 @@ import {UserService} from "../user.service";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  successfullyRegister: boolean = false;
+  unsuccessfullyRegister: boolean = false;
+  errorMsg: string = '';
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,12 +23,14 @@ export class RegisterComponent implements OnInit {
     observer
       .subscribe(token => {
         if(token != "") {
-          console.log(token)
-          console.log("GELUKT")
-        } else {
-          console.log("NIET GELUKT")
+          this.successfullyRegister = true;
+          this.unsuccessfullyRegister = false;
         }
-      });
+      },
+        (error) => {
+          this.unsuccessfullyRegister = true;
+          this.errorMsg = error.error.message;
+        });
 
   }
 

@@ -30,6 +30,7 @@
                     <div class="d-flex align-items-center justify-content-center pb-4">
                       <p class="mb-0 me-2">Don't have an account? <button type="button" class="btn btn-outline-danger" [routerLink]="['/register']">Create new</button></p>
                     </div>
+                    <p class="alert-warning" *ngIf="LoggedInFail">{{errorMsg}}</p>
                   </form>
                 </div>
               </div>

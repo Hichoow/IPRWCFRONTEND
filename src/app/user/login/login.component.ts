@@ -35,9 +35,8 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenService.getUser().roles;
         window.location.assign("");
       },
-      error => {
-        console.log("error")
-        this.errorMsg = error.error.message;
+      (error) => {
+        this.errorMsg = "Sorry, the username or password was incorrect.";
         this.LoggedInFail = true;
       }
     );
