@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {UserService} from "../../services/user.service";
+import {UserService} from "../user.service";
 import {TokenService} from "../../services/token.service";
 import {Router} from "@angular/router";
 
@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
         window.location.assign("");
       },
       error => {
+        console.log("error")
         this.errorMsg = error.error.message;
         this.LoggedInFail = true;
       }

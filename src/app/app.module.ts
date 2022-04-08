@@ -8,12 +8,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { RegisterComponent } from './user/register/register.component';
 import { UserComponent } from './user/user.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { ProductsComponent } from './products/products.component';
-import { OrdersComponent } from './orders/orders.component';
+import { ShoppingCartComponent } from './shop/shopping-cart/shopping-cart.component';
+import { ProductsComponent } from './shop/products/products.component';
+import { OrdersComponent } from './shop/orders/orders.component';
 import { ShopComponent } from './shop/shop.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import {ShopService} from "./shop/shop.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     HttpClientModule,
     CommonModule
   ],
-  providers: [],
+  providers: [
+    ShopService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

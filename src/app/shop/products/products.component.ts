@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from "../models/product.model";
-import { ProductOrder } from "../models/product-order.model";
-import { ProductOrders} from "../models/product-orders.model";
+import { Product } from "../../models/product.model";
+import { ProductOrder } from "../../models/product-order.model";
+import { ProductOrders} from "../../models/product-orders.model";
 import { Subscription } from "rxjs";
-import {ShopService} from "../shop/shop.model";
+import {ShopService} from "../shop.service";
 
 @Component({
   selector: 'app-products',
@@ -59,6 +59,7 @@ export class ProductsComponent implements OnInit {
         (products:any) => {
           this.products = products;
           this.products.forEach(product => {
+            console.log(product)
             this.productOrders.push(new ProductOrder(product, 0));
           })
         },

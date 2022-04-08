@@ -1,29 +1,32 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" [routerLink]="['/homepage']">Candyplanet</a>
-    </div>
+<div class="backgroundClr">
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" [routerLink]="['/homepage']"><img src="assets/img/logo.png"
+                                                                    style="width: 70px;" alt="logo"></a>
+        </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a [routerLink]="['/shop']">Shop<span class="sr-only">(current)</span></a></li>
-      </ul>
-      <form class="navbar-form navbar-left">
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a *ngIf="!isLoggedIn"[routerLink]="['/register']">Register</a></li>
-        <li><a *ngIf="!isLoggedIn" [routerLink]="['/login']">Log In</a></li>
-        <li><a  *ngIf="isLoggedIn" [routerLink]="['/shop']" (click)="LogOut()">Log out</a></li>
-      </ul>
-    </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a [routerLink]="['/shop']" (click)="LoggedIn()">Shop<span class="sr-only">(current)</span></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a *ngIf="!isLoggedIn"[routerLink]="['/register']">Register</a></li>
+            <li><a *ngIf="!isLoggedIn" [routerLink]="['/login']">Log In</a></li>
+            <li><a *ngIf="isLoggedIn" [routerLink]="['']"(click)="LogOut()">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
+</div>
 <router-outlet></router-outlet>
 
 

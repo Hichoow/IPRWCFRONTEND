@@ -1,13 +1,13 @@
 import {Subject} from "rxjs/internal/Subject";
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from "@angular/core";
-import { ProductOrders } from '../models/product-orders.model';
 import {ProductOrder} from "../models/product-order.model";
+import { ProductOrders } from "src/app/models/product-orders.model";
 
 @Injectable()
 export class ShopService {
-  private productsUrl = "/api/products";
-  private ordersUrl = "/api/orders";
+  private productsUrl = "http://localhost:8080/api/products";
+  private ordersUrl = "http://localhost:8080/api/orders";
 
   private productOrder!: ProductOrder;
   private orders: ProductOrders = new ProductOrders();
@@ -16,7 +16,7 @@ export class ShopService {
   private ordersSubject = new Subject();
   private totalSubject = new Subject();
 
-  private total: number | any;
+  private total!: number;
 
   ProductOrderChanged = this.productOrderSubject.asObservable();
   OrdersChanged = this.ordersSubject.asObservable();
